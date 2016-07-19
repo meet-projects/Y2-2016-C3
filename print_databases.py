@@ -32,12 +32,14 @@ if __name__ == '__main__':
 
         max_lengths = []
 
-        for title, data in zip(columns, zip(*table_to_print)):
-            max_lengths.append(max([len(repr(d)) for d in data]) + 2)
+        # If there are no rows, we still want to print the headers
+        if len(table_to_print) == 0:
+            max_lengths = [len(c)+2 for c in columns]
+        else:
+            for title, data in zip(columns, zip(*table_to_print)):
+                max_lengths.append(max([len(repr(d)) for d in data + (title,)]) + 2)
         row_format = ''.join(["{:>%d}" % length for length in max_lengths])
 
-        # TODO this will break if the title name is too long OR the column
-        # names are too short (unlikely but possible)
         header = row_format.format(*columns)
         width = len(header)
         title_pad = (width - len(table_name)) // 2
