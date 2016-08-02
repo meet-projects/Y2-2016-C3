@@ -1,0 +1,32 @@
+<DOCTYPE! html>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EDIT INFO</title>
+</head>
+<body>
+<div class="container">
+
+	<div>
+		<h1>
+			Edit Your'e Info
+		</h1>
+		<br>
+		<h3>
+			Here you can edit your information about yourself!
+		</h3>
+	</div>
+	<div>
+		
+		<form action="{{url_for('edit_info')}}" method="post" role="form">
+			<div class="group-form">
+				<label for="name">Name:</label>
+				<input type="text" name="name" value="{{friend.name}}" class="form-control">
+			</div>
+			<div class="group-form">
+				<label for="name">Sir Name:</label>
+				<input type="text" name="sir_name" value="{{friend.sir_name}}" class="form-control">
+			</div>
+</div>		
+</body>
+</html>
