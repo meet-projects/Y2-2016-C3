@@ -19,7 +19,7 @@ session = DBSession()
 @app.route('/')
 def main():
     return render_template('main_page.html')
-@app.route('/edit_info')
+@app.route('/edit_info' methods=['get','post'])
 def edit_info(person_id):
 	friend = session.query(Person).filter_by(id=person_id).first()
 	if request.method == 'GET':
@@ -35,8 +35,18 @@ def edit_info(person_id):
 
 	return render_template('edit_info')
 
-
-
+@app.route('/sign_up' methods=['get','post'])
+def sign_up():
+	if request.method == 'GET':
+		return render_template("sign_up.html", friend=friend)
+	else:
+		list_of_info=[name,sir_name,gender,birth_date,country,city,user_name,password]
+		for i in list_of_info:
+			i=request.form(str(i))
+			
+		friend=Person(name=name,sir_name=sir_name,gender=gender,birth_date=birth_date,country=country,city=city,user_name=user_name,password=password)
+		session.add(friend)
+	session.commit()
 
 
 
