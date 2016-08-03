@@ -20,10 +20,10 @@ session = DBSession()
 @app.route('/')
 def main():
 	print ('we made it')
-	return render_template('main_page.html',friend=friend)
+	return render_template('main_page.html')
 
 
-@app.route('/edit_info', methods=['GET','POST'])
+@app.route('/edit_info/', methods=['GET','POST'])
 def edit_info(person_id):
 	friend = session.query(Person).filter_by(id=person_id).first()
 	if request.method == 'GET':
@@ -43,12 +43,13 @@ def edit_info(person_id):
 
 
 
-@app.route('/add_event', methods=['GET', 'POST'])
+@app.route('/add_event/', methods=['GET', 'POST'])
 def add_event():
 	if(request.method == 'GET'):
 		return render_template("add_event.html")
 	# read form data
 	else:
+		
 		new_name = request.form['name']
 		new_date = request.form['date']
 		new_style = request.form['style']
@@ -62,7 +63,7 @@ def add_event():
 		session.add(newevent)
 		session.commit()
 		
-
+		
 		# redirect user to the page that views all friends
 		return redirect(url_for('main'))
 
