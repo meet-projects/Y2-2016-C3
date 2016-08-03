@@ -2,6 +2,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> 
+<!-- jQuery library --> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script> 
+<!-- Latest compiled JavaScript --> 
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
+
 	<title>SIGN UP</title>
 </head>
 <body>
@@ -17,6 +23,20 @@
 		</h3>
 	</div>
 	<div>	
+<<<<<<< HEAD
+		<form action="{{url_for('edit_info')}}" method="post" role="form">
+		Name<input type="text" name="Name" placeholder="Whats youre name"><br>
+		Sir-Name<input type="text" name="sir_name" placeholder="Youre Sir-Name"><br>
+		Gender<br>
+		Male<input type="radio" name="gender" value="male"><br>
+		Female<input type="radio" name="gender" value="female"><br>
+		Other<input type="radio" name="gender" value="other"><br>
+		Birth_Date<input type="text" name="birth_date" placeholder="Example: 28-06-1999"><br>
+		Counrty<input type="text" name="counrty" placeholder="Your country"><br>
+		City<input type="text" name="city" placeholder="Where do you live"><br>
+		Username<input type="text" name="Username" placeholder="Username" "><br>
+		Password<input type="password" name="password" placeholder="Password"><br>
+=======
 		<form action="{{url_for('sign_up')}}" method="post" role="form">
 		name<input type="text" name="name" placeholder="whats youre name"><br>
 		sir_name<input type="text" name="sir_name" placeholder="youre sir name"><br>
@@ -29,6 +49,7 @@
 		city<input type="text" name="city" placeholder="where do you live"><br>
 		user_name<input type="text" name="user_name" placeholder="user name" "><br>
 		password<input type="password" name="password" placeholder="password"><br>
+>>>>>>> eee39d249fcd39f264fce0b6b93800e9499ace36
 
 		<input type="submit" name="submit_sign_up" value="Submit">
 	</div>
