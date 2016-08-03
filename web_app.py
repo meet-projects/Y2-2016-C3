@@ -21,7 +21,18 @@ def main():
     return render_template('main_page.html')
 @app.route('/edit_info')
 def edit_info(person_id):
-	
+	friend = session.query(Person).filter_by(id=person_id).first()
+	if request.method == 'GET':
+		return render_template("edit_info.html", friend=friend)
+	else:
+		list_of_info=["name","sir_name","gender","birth_date","country","city","user_name","password"]
+		for i in list_of_info:
+			setattr(friend, i, request.form[i])
+
+
+		session.commit()
+		return redirect(url_for('main_page'))
+
 	return render_template('edit_info')
 
 
