@@ -19,7 +19,7 @@ class Person(Base):
 
 
 
-class event(Base):
+class Event(Base):
 
     __tablename__ = 'event'
     id = Column(Integer, primary_key=True)
