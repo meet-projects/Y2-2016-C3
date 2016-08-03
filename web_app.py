@@ -50,12 +50,12 @@ def add_event():
 	else:
 		new_name = request.form['name']
 		new_date = request.form['date']
-		new_type = request.form['type']
+		new_style = request.form['style']
 		new_location = request.form['location']
 		
 
 		
-		newevent = Event(name = new_name, date = new_date, type = new_type, location = new_location)
+		newevent = Event(name = new_name, date = new_date, style = new_style, location = new_location)
 
 		
 		session.add(newevent)
@@ -63,7 +63,7 @@ def add_event():
 		
 
 		# redirect user to the page that views all friends
-		return redirect(url_for('main_page'))
+		return redirect(url_for('main'))
 
 
 

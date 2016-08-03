@@ -24,9 +24,9 @@ class Event(Base):
     __tablename__ = 'event'
     id = Column(Integer, primary_key=True)
     name = Column(String(60))
-    Date = Column(String(60))
+    date = Column(String(60))
     location = Column(String(60))
-    styles = Column(String(60))
+    style = Column(String(60))
 
     
     
