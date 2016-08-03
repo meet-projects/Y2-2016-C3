@@ -1,11 +1,11 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, url_for, redirect
 app = Flask(__name__)
 
 # SQLAlchemy stuff
 ### Add your tables here!
 # For example:
 # from database_setup import Base, Potato, Monkey
-from database_setup import Base
+from database_setup import Base, Event
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -19,6 +19,8 @@ session = DBSession()
 @app.route('/')
 def main():
     return render_template('main_page.html')
+
+
 @app.route('/edit_info')
 def edit_info(person_id):
 	friend = session.query(Person).filter_by(id=person_id).first()
@@ -34,6 +36,30 @@ def edit_info(person_id):
 		return redirect(url_for('main_page'))
 
 	return render_template('edit_info')
+
+
+@app.route('/add_event', methods=['GET', 'POST'])
+def add_friend():
+	if(request.method == 'GET'):
+		return render_template("add_event.html")
+	# read form data
+	else:
+		new_name = request.form['name']
+		new_date = request.form['date']
+		new_type = request.form['type']
+		new_location = request.form['location']
+		
+
+		
+		newevent = Event(name = new_name, date = new_date, type = new_type, location = new_location)
+
+		
+		session.add(newevent)
+		session.commit()
+		
+
+		# redirect user to the page that views all friends
+		return redirect(url_for('main_page'))
 
 
 
