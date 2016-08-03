@@ -23,6 +23,7 @@ def main():
 
 
 @app.route('/edit_info', methods=['GET','POST'])
+
 def edit_info(person_id):
 	friend = session.query(Person).filter_by(id=person_id).first()
 	if request.method == 'GET':
@@ -64,6 +65,7 @@ def add_friend():
 
 
 
+
 @app.route('/sign_up', methods=['GET','POST'])
 def sign_up():
 	if request.method == 'GET':
@@ -75,7 +77,7 @@ def sign_up():
 			
 		friend=Person(name=name,sir_name=sir_name,gender=gender,birth_date=birth_date,country=country,city=city,user_name=user_name,password=password)
 		session.add(friend)
-	session.commit()
+		session.commit()
 
 
 
