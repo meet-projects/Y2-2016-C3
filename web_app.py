@@ -22,7 +22,7 @@ def main():
     return render_template('main_page.html')
 
 
-@app.route('/edit_info' methods=['get','post'])
+@app.route('/edit_info', methods=['GET','POST'])
 def edit_info(person_id):
 	friend = session.query(Person).filter_by(id=person_id).first()
 	if request.method == 'GET':
