@@ -6,7 +6,7 @@ app = Flask(__name__)
 ### Add your tables here!
 # For example:
 # from database_setup import Base, Potato, Monkey
-from database_setup import Base, Event
+from database_setup import Base, Event, Person
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -19,7 +19,8 @@ session = DBSession()
 #YOUR WEB APP CODE GOES HERE
 @app.route('/')
 def main():
-    return render_template('main_page.html')
+	print ('we made it')
+	return render_template('main_page.html',friend=friend)
 
 
 @app.route('/edit_info', methods=['GET','POST'])
@@ -65,22 +66,28 @@ def add_friend():
 
 
 
-<<<<<<< HEAD
-@app.route('/sign_up' ,methods=['GET','POST'])
-=======
 
 @app.route('/sign_up', methods=['GET','POST'])
->>>>>>> d1b4b18ccdc6e01dbf7cd8fba5bd57210587fe45
 def sign_up():
 	if request.method == 'GET':
 		return render_template("sign_up.html")
 	else:
-		
+		print (request.form)
 			
-		friend=Person(name=request.form['name'],sir_name=request.form['sir_name'],gender=request.form['gender'],birth_date=request.form['birth_date'],country=request.form['country'],city=request.form['city'],user_name=request.form['user_name'],password=request.form['password'])
+		friend=Person(
+			name=request.form['name'],
+			sir_name=request.form['sir_name'],
+			gender=request.form['gender'],
+			birth_date=request.form['birth_date'],
+			country=request.form['country'],
+			city=request.form['city'],
+			user_name=request.form['user_name'],
+			password=request.form['password'])
+		print ("DID I MADE A FRIEND?")
 		session.add(friend)
 		session.commit()
-	return redirect(url_for('main_page'))
+		print ("I made it past the commit")
+	return redirect(url_for('main'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+	app.run(debug=True)
