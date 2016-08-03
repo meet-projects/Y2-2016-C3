@@ -65,21 +65,22 @@ def add_friend():
 
 
 
+<<<<<<< HEAD
+@app.route('/sign_up' ,methods=['GET','POST'])
+=======
 
 @app.route('/sign_up', methods=['GET','POST'])
+>>>>>>> d1b4b18ccdc6e01dbf7cd8fba5bd57210587fe45
 def sign_up():
 	if request.method == 'GET':
-		return render_template("sign_up.html", friend=friend)
+		return render_template("sign_up.html")
 	else:
-		list_of_info=[name,sir_name,gender,birth_date,country,city,user_name,password]
-		for i in list_of_info:
-			i=request.form(str(i))
+		
 			
-		friend=Person(name=name,sir_name=sir_name,gender=gender,birth_date=birth_date,country=country,city=city,user_name=user_name,password=password)
+		friend=Person(name=request.form['name'],sir_name=request.form['sir_name'],gender=request.form['gender'],birth_date=request.form['birth_date'],country=request.form['country'],city=request.form['city'],user_name=request.form['user_name'],password=request.form['password'])
 		session.add(friend)
 		session.commit()
-
-
+	return redirect(url_for('main_page'))
 
 if __name__ == '__main__':
     app.run(debug=True)
