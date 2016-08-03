@@ -19,8 +19,10 @@ session = DBSession()
 @app.route('/')
 def main():
     return render_template('main_page.html')
-
-
+@app.route('/edit_info')
+def edit_info(person_id):
+	
+	return render_template('edit_info')
 
 
 

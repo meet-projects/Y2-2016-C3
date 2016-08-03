@@ -11,6 +11,7 @@ class Person(Base):
     sir_name = Column(String(60))
     id = Column(Integer, primary_key=True)
     gender = Column(String(15))
+    borth_date = Column(String)
     country = Column(String(30))
     city = Column(String(60))  # city/town name
     user_name = Column(String(60))

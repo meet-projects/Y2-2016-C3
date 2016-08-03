@@ -3,7 +3,7 @@ from sqlalchemy import create_engine
 
 from database_setup import Base, Person
 
-engine = create_engine('sqlite:///project.db')
+engine = create_engine('sqlite:///crudlab.db')
 Base.metadata.create_all(engine)
 Base.metadata.bind = engine
 
