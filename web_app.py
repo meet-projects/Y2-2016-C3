@@ -24,7 +24,6 @@ def main():
 
 
 @app.route('/edit_info', methods=['GET','POST'])
-
 def edit_info(person_id):
 	friend = session.query(Person).filter_by(id=person_id).first()
 	if request.method == 'GET':
@@ -41,8 +40,11 @@ def edit_info(person_id):
 	return render_template('edit_info')
 
 
+
+
+
 @app.route('/add_event', methods=['GET', 'POST'])
-def add_friend():
+def add_event():
 	if(request.method == 'GET'):
 		return render_template("add_event.html")
 	# read form data
