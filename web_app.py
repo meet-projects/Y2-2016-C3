@@ -95,8 +95,8 @@ def sign_up():
 
 @app.route('/all_events')
 def all_events():
-	
-	return render_template('all_events.html')
+	events= session.query(Event).all()
+	return render_template('all_events.html', events = events)
 
 
 

@@ -35,7 +35,7 @@ filename='style.css') }}">
 </thead>
 
 <tbody>
-  {% for friend in friends %}
+  {% for event in events %}
   <tr>
     <td>{{ event.name }}</td>
     <td>{{ event.date }}</td>
@@ -50,7 +50,7 @@ filename='style.css') }}">
 </tbody>
 </table>
 
-<a href= "{{ url_for('Main') }}" class="btn btn-info" role="button">Home</a>
+<a href= "{{ url_for('main') }}" class="btn btn-info" role="button">Home</a>
 
 </div>
 
