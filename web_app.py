@@ -20,13 +20,10 @@ session = DBSession()
 @app.route('/')
 def main():
     return render_template('main_page.html')
-<<<<<<< HEAD
+
+
 @app.route('/edit_info', methods=['GET','POST'])
-=======
 
-
-@app.route('/edit_info' methods=['get','post'])
->>>>>>> 7d9197515c7d7f79949bacd2f941076f28e38489
 def edit_info(person_id):
 	friend = session.query(Person).filter_by(id=person_id).first()
 	if request.method == 'GET':
@@ -42,9 +39,6 @@ def edit_info(person_id):
 
 	return render_template('edit_info')
 
-<<<<<<< HEAD
-@app.route('/sign_up' ,methods=['GET','POST'])
-=======
 
 @app.route('/add_event', methods=['GET', 'POST'])
 def add_friend():
@@ -71,8 +65,7 @@ def add_friend():
 
 
 
-@app.route('/sign_up' methods=['get','post'])
->>>>>>> 7d9197515c7d7f79949bacd2f941076f28e38489
+@app.route('/sign_up' methods=['GET','POST'])
 def sign_up():
 	if request.method == 'GET':
 		return render_template("sign_up.html", friend=friend)
@@ -83,7 +76,7 @@ def sign_up():
 			
 		friend=Person(name=name,sir_name=sir_name,gender=gender,birth_date=birth_date,country=country,city=city,user_name=user_name,password=password)
 		session.add(friend)
-	session.commit()
+		session.commit()
 
 
 
