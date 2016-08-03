@@ -16,3 +16,18 @@ class Person(Base):
     city = Column(String(60))  # city/town name
     user_name = Column(String(60))
     password = Column(String(60))
+
+
+
+class event(Base):
+
+    __tablename__ = 'person'
+    id = Column(Integer, primary_key=True)
+    name = Column(String(60))
+    Date = Column(String(60))
+    location = Column(String(60))
+    styles = Column(String(60))
+
+    
+    
+        
