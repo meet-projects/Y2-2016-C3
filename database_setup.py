@@ -11,7 +11,7 @@ class Person(Base):
     sir_name = Column(String(60))
     id = Column(Integer, primary_key=True)
     gender = Column(String(15))
-    borth_date = Column(String)
+    birth_date = Column(String)
     country = Column(String(30))
     city = Column(String(60))  # city/town name
     user_name = Column(String(60))
@@ -24,9 +24,9 @@ class Event(Base):
     __tablename__ = 'event'
     id = Column(Integer, primary_key=True)
     name = Column(String(60))
-    Date = Column(String(60))
+    date = Column(String(60))
     location = Column(String(60))
-    styles = Column(String(60))
+    style = Column(String(60))
 
     
     
