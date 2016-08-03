@@ -19,7 +19,7 @@ session = DBSession()
 #YOUR WEB APP CODE GOES HERE
 @app.route('/')
 def main():
-	print ('we made it')
+	
 	return render_template('main_page.html')
 
 
@@ -91,6 +91,15 @@ def sign_up():
 		session.commit()
 		print ("I made it past the commit")
 	return redirect(url_for('main'))
+
+
+@app.route('/all_events')
+def all_events():
+	
+	return render_template('all_events.html')
+
+
+
 
 if __name__ == '__main__':
 	app.run(debug=True)
