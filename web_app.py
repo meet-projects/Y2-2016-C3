@@ -64,7 +64,7 @@ def add_friend():
 
 
 
-@app.route('/sign_up' methods=['get','post'])
+@app.route('/sign_up', methods=['GET','POST'])
 def sign_up():
 	if request.method == 'GET':
 		return render_template("sign_up.html", friend=friend)
