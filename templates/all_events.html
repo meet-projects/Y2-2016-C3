@@ -15,31 +15,51 @@ filename='style.css') }}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-
 <body>
 
-<h1>Coolest Events Ever</h1>
+<div class="container">
 
-<a href="{{url_for('edit_info')}}" class="btn btn-info" role="button">edit info</a>
+<div class="page-header">
+<h1>All Events</h1>
+</div>
+
+<table class="table">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Type</th>
+    <th>Location</th>
+    <th></th>
+  </tr>
+</thead>
+
+<tbody>
+  {% for event in events %}
+  <tr>
+    <td>{{ event.name }}</td>
+    <td>{{ event.date }}</td>
+    <td>{{ event.type }}</td>
+    <td>{{ event.location }} </td>
+ 
 
 
-<br>
+  </tr>
 
-<a href="{{url_for('sign_up')}}" class="btn btn-info" role="button">signup</a>
+    {% endfor %}
+</tbody>
+</table>
 
-<br>
+<a href= "{{ url_for('main') }}" class="btn btn-info" role="button">Home</a>
 
-<a href="{{url_for('add_event')}}" class="btn btn-info" role="button">add event</a>
+</div>
 
-<br>
+<footer class="footer">
+<div class="container">
 
-<a href="{{url_for('all_events')}}" class="btn btn-info" role="button">all event</a>
-
-
+</div>
+</footer>
 
 </body>
-
-
-<p> here, try to design. add buttons, bootstrap. ty! <3 </p>
-
 </html>
+
