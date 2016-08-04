@@ -2,59 +2,54 @@
 <html>
 <head>
 
-
-<!-- ERROR IN EDIT INFO 
-
-
-
--->
-
+ <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', 
 filename='style.css') }}">
  <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-<!-- Latest compiled JavaScript -->
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-<meta name="viewport" content="width=device-width, initial-scale=1">
 
 </head>
-
+ <style>
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+</style>
 <body>
-
+<div class="container-fluid">
+	
 <h1>Coolest Events Ever</h1>
+</div>
+<div class="container">
+	 <nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Me</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{{url_for('all_events')}}">View All Events</a></li>
+        <li><a href="{{url_for('add_event')}}">Add An Event</a></li>
+        <li><a href="{{url_for('edit_info')}}">Edit Youre Information</a></li>
+        <li> <a href="{{ url_for('my_bucket')}}">Youre Bucket :)</li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<a href="{{url_for('edit_info')}}" class="btn btn-info" role="button">edit info</a>
-
-
-<br>
-
-<a href="{{url_for('sign_up')}}" class="btn btn-info" role="button">signup</a>
-
-<br>
-
-<a href="{{url_for('add_event')}}" class="btn btn-info" role="button">add event</a>
-
-<br>
-
-<a href="{{url_for('all_events')}}" class="btn btn-info" role="button">all event</a>
-
-<td>
-
-<br>
-
-<a href="{{ url_for('my_bucket')}}" class="btn btn-info" role="button">My Bucket!</a>
-
-
+</div>
 
 </body>
 
 
-<p> here, try to design. add buttons, bootstrap. ty! <3 </p>
 
 </html>
