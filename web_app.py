@@ -23,12 +23,6 @@ logged_in = 1
 def first_page():
 	return render_template("first_page.html")
 
-<<<<<<< HEAD
-
-
-	
-=======
->>>>>>> 3a4bede639593fa8713df367047ce360c0d8e376
 @app.route('/sign_up',methods=['GET','POST'])
 def sign_up():
 	if request.method == 'GET':
@@ -49,7 +43,7 @@ def sign_up():
 		session.add(friend)
 		session.commit()
 		print ("I made it past the commit")
-		return redirect(url_for('main',person_id=person_id))
+		return redirect(url_for('main_page',person_id=logged_in))
 
 @app.route('/edit_info', methods=['GET','POST'])
 def edit_info():
