@@ -9,21 +9,21 @@
   <script src=""></script>
   <script src=""></script>
   <style>
-    .ilinin {
+	.ilinin {
 
   background: url('static/lol.jpg');
 
   background-size: cover;
 }
 
-    .navbar {
-      margin-bottom: 340;
-      border-radius: 890;
-    }
-    
-    
+	.navbar {
+	  margin-bottom: 340;
+	  border-radius: 890;
+	}
+	
+	
   
-    }
+	}
   </style>
 </head>
 <body class="ilinin">
@@ -31,47 +31,13 @@
 
 
 
-<div >
-  <div class="container text-center">
-    <h1></h1>  
-     <FONT FACE="bookman">BUCKET LIST</FONT> 
-           <FONT SIZE="70"></FONT>    
-    <p></p>
-     <div class="container text-center">
- <img src="" />
-</div>
-<br />
-<br />
 <div class="container text-center">
- <img src=""
-    </div>​
-
-  </div>
+	 <FONT FACE="bookman">BUCKET LIST</FONT> 
+		   <FONT SIZE="70"></FONT>    
+	 <div class="container text-center">
 </div>
   
-<div class="container-fluid bg-3 text-center">    
-  <h3></h3><br>
-  <div class="row">
-    <div class="col-sm-3">
-      <p></p>
-    </div>
-    
-
-<div class="container-fluid bg-3 text-center">    
-  <div class="row">
-    <div class="col-sm-3">
-      <p></p>
-    </div>
-    
-
-<footer class="container-fluid text-center">
-  <p></p>
-</footer>
-
-
-<div class="container-fluid">
-  <div>
-  
+ 
 </div>
 <a href="{{url_for('sign_up')}}" class="btn btn-success"> Sign Up</a>
 </body>
@@ -79,42 +45,42 @@
 
 <style>
 body {
-    font-family: "Lato", sans-serif;
+	font-family: "Lato", sans-serif;
 }
 
 .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 60px;
+	height: 100%;
+	width: 0;
+	position: fixed;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	background-color: #111;
+	overflow-x: hidden;
+	transition: 0.5s;
+	padding-top: 60px;
 }
 
 .sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s
+	padding: 8px 8px 8px 32px;
+	text-decoration: none;
+	font-size: 25px;
+	color: #818181;
+	display: block;
+	transition: 0.3s
 }
 
 
 .sidenav a:hover, .offcanvas a:focus{
-    color: #f1f1f1;
+	color: #f1f1f1;
 }
 
 .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px !important;
-    margin-left: 50px;
+	position: absolute;
+	top: 0;
+	right: 25px;
+	font-size: 36px !important;
+	margin-left: 50px;
 }
 
 @media screen and (max-height: 450px) {
@@ -127,22 +93,25 @@ body {
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   <a href="#">About</a>
-  <a href="#">My Bucket</a>
   <a href="#">Live Feed</a>
-  <a href="#">Add Bucket</a>
 </div>
+<div class="container">
+	<div class="row">
+		<div class="col-md-1">
+			
+			<p>MENU</p>
+			<span style="font-size:30px;cursor:pointer" onclick="openNav() ">☰</span>
+		</div>
 
-<h2></h2>
-<p><MENU</p>
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">☰</span>
-
+	</div>
+</div>
 <script>
 function openNav() {
-    document.getElementById("mySidenav").style.width = "250px";
+	document.getElementById("mySidenav").style.width = "250px";
 }
 
 function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
+	document.getElementById("mySidenav").style.width = "0";
 }
 </script>
 
