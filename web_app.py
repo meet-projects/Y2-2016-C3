@@ -16,11 +16,18 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
+logged_in = 1
+
 
 @app.route('/', methods=['GET','POST'])
 def first_page():
 	return render_template("first_page.html")
 
+<<<<<<< HEAD
+=======
+
+	
+>>>>>>> 876cca4df641894f4464df64340a93639171a4f5
 
 	
 @app.route('/sign_up',methods=['GET','POST'])
@@ -45,13 +52,13 @@ def sign_up():
 		print ("I made it past the commit")
 		return redirect(url_for('main',person_id=person_id))
 
-@app.route('/edit_info/', methods=['GET','POST'])
+@app.route('/edit/<int:person_id>', methods=['GET','POST'])
 def edit_info(person_id):
-	friend = session.query(Person).filter_by(id=person_id).first()
+	friend = session.query(Person).filter_by(id=logged_in).first()
 	if request.method == 'GET':
-		return render_template("edit_info.html", friend=friend)
+		return render_template("edit_info.html",)
 	else:
-		list_of_info=["name","sir_name","gender","birth_date","country","city","user_name","password"]
+		list_of_info=["name","sir_name","gender","birth_date","country","city","user_name","password", "event_fav"]
 		for i in list_of_info:
 			setattr(friend, i, request.form[i])
 
@@ -87,16 +94,14 @@ def add_event():
 		
 		
 		# redirect user to the page that views all friends
-		return redirect(url_for('main'))
+		return redirect(url_for('main_page'))
 
 
 
 
-@app.route('/main/<int:person_id>')
-def main(person_id):
-	person=session.query(Person).filter_by(id=person_id).first()
-
-	return render_template('main_page.html',person=person)
+@app.route('/main_page')
+def main_page():
+	return render_template('main_page.html')
 
 @app.route('/all_events')
 def all_events():
@@ -129,20 +134,29 @@ def edit_event(event_id):
 		
 
 		# redirect user to the page that views all friends
-		return redirect(url_for('main'))
+		return redirect(url_for('main_page'))
 
 
 
 
 @app.route("/my_bucket/<int:person_id>", methods = ['GET', 'POST'])
 def my_bucket(person_id):
-	person = session.query(Person).filter_by(id=person_id).first()
+	person = session.query(Person).filter_by(id=logged_in).first()
 	styles = person.split(",")
 	totla_event = []
 	for s in styles:
 		current_events = session.query(Event).filter_by(style = s).all()
 		totla_event += current_events 
 	return render_template("my_bucket.html", person=person, events=totla_event)
+
+
+@app.route("/log_in")
+def log_in():
+	request.form['username']
+	request.form['password']
+	person = session.query(Person).filter_by(username=person_username).all()
+	if(request.form['password'] == person.password):
+		logged_in = person.id
 
 
 
