@@ -18,8 +18,11 @@
 	</div>
 	<div>	
 		<form action="{{url_for('edit_info')}}" method="post" role="form">
-		name<input type="text" name="name" value="{{'friend.name'}}"><br>
-		sir_name<input type="text" name="sir_name" value="{{'friend.sir_name'}}"><br>
+		name <input type="text" name="name" value="{{'friend.name'}}"><br>
+		sir_name <input type="text" name="sir_name" value="{{'friend.sir_name'}}">
+
+		<br>
+
 	{%if friend.gender == 'Male'%}
 	<input type="radio" name="gender" value="male" checked class="form-control"> male
 	{%else%}
@@ -36,7 +39,9 @@
 	<input type="radio" class="form-control" name="gender" value="other" checked> other
 	{%else%}
 	<input type="radio" name="gender" class="form-control" value="other" > other
-	{%endif%}		birth_date<input type="text" name="birth_date" value="{{'friend.birth_date'}}"><br>
+	{%endif%}	
+		
+		birth_date<input type="text" name="birth_date" value="{{'friend.birth_date'}}"><br>
 		counrty<input type="text" name="counrty" value="{{'friend.counrty'}}"><br>
 		city<input type="text" name="city" value="{{'friend.city'}}"><br>
 		user_name<input type="text" name="user_name" value="{{'friend.user_name'}}"><br>

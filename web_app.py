@@ -38,12 +38,13 @@ def sign_up():
 			country=request.form['country'],
 			city=request.form['city'],
 			user_name=request.form['user_name'],
-			password=request.form['password'])
+			password=request.form['password'],
+			event_fav=request.form['event_fav'])
 		print ("DID I MADE A FRIEND?")
 		session.add(friend)
 		session.commit()
 		print ("I made it past the commit")
-		return redirect(url_for('main_page',person_id=logged_in))
+		return redirect(url_for('main_page'))
 
 @app.route('/edit_info', methods=['GET','POST'])
 def edit_info():
@@ -76,6 +77,7 @@ def add_event():
 		new_date = request.form['date']
 		new_style = request.form['style']
 		new_location = request.form['location']
+		
 		
 
 		
@@ -132,8 +134,8 @@ def edit_event(event_id):
 
 
 
-@app.route("/my_bucket/<int:person_id>", methods = ['GET', 'POST'])
-def my_bucket(person_id):
+@app.route("/my_bucket/", methods = ['GET', 'POST'])
+def my_bucket():
 	person = session.query(Person).filter_by(id=logged_in).first()
 	styles = person.split(",")
 	totla_event = []
