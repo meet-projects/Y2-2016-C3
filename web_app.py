@@ -16,11 +16,33 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-#YOUR WEB APP CODE GOES HERE
-@app.route('/')
-def main():
-	return render_template('main_page.html')
+@app.route('/', methods=['GET','POST'])
+def first_page():
+	return render_template("first_page.html")
+	
 
+	
+@app.route('/sign_up',methods=['GET','POST'])
+def sign_up():
+	if request.method == 'GET':
+		return render_template("sign_up.html")
+	else:
+		print (request.form)
+			
+		friend=Person(
+			name=request.form['name'],
+			sir_name=request.form['sir_name'],
+			gender=request.form['gender'],
+			birth_date=request.form['birth_date'],
+			country=request.form['country'],
+			city=request.form['city'],
+			user_name=request.form['user_name'],
+			password=request.form['password'])
+		print ("DID I MADE A FRIEND?")
+		session.add(friend)
+		session.commit()
+		print ("I made it past the commit")
+	return redirect(url_for('main'))
 
 @app.route('/edit_info/', methods=['GET','POST'])
 def edit_info(person_id):
@@ -69,28 +91,11 @@ def add_event():
 
 
 
-@app.route('/sign_up', methods=['GET','POST'])
-def sign_up():
-	if request.method == 'GET':
-		return render_template("sign_up.html")
-	else:
-		print (request.form)
-			
-		friend=Person(
-			name=request.form['name'],
-			sir_name=request.form['sir_name'],
-			gender=request.form['gender'],
-			birth_date=request.form['birth_date'],
-			country=request.form['country'],
-			city=request.form['city'],
-			user_name=request.form['user_name'],
-			password=request.form['password'])
-		print ("DID I MADE A FRIEND?")
-		session.add(friend)
-		session.commit()
-		print ("I made it past the commit")
-	return redirect(url_for('main'))
+@app.route('/main/<int:person_id>')
+def main(person_id):
+	person=session.query(Person).filter_by(id=person_id).first()
 
+	return render_template('main_page.html',person=person)
 
 @app.route('/all_events')
 def all_events():
