@@ -101,6 +101,34 @@ def all_events():
 
 
 
+@app.route("/edit/<int:event_id>", methods=['GET', 'POST'])
+def edit_event(event_id):
+	print(list(request.form.keys()))
+	event = session.query(Event).filter_by(id=event_id).first()
+	if request.method == 'GET':
+		return render_template("edit_event.html", event=event)
+	else:
+		# read form data
+		new_name = request.form['name']
+		new_date = request.form['date']
+		new_style = request.form['style']
+		new_location = request.form['location']
+
+		
+		
+		event.name = new_name
+		event.date = new_date
+		event.style = new_style
+		event.style = new_style
+	   
+		session.commit()
+		
+
+		# redirect user to the page that views all friends
+		return redirect(url_for('main'))
+
+
+
 
 if __name__ == '__main__':
 	app.run(debug=True)

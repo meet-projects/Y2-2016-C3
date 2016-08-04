@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', 
+filename='style.css') }}">
+ <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+
+<div class="container">
+
+<div class="page-header">
+<h1>Edit Your Event!</h1>
+</div>
+
+<form action="{{url_for('edit_event', event_id = event.id )}}" method="post">
+
+Name: <input type="text" name="name" value="{{ event.name }}"> 
+<br>
+
+
+Date: <input type="text" name="date" placeholder="Date"> 
+
+<br>
+
+Type: <input type="text" name="type" value="{{ event.type }}"> 
+<br>
+Location: <input type="text" name="location" value="{{ event.location }}"> 
+<br>
+<input type="submit" value="Submit">
+<br>
+
+</form>
+
+
+</div>
+
+<footer class="footer">
+<div class="container">
+
+
+</div>
+</footer>
+
+
+
+</body>
