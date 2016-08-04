@@ -91,8 +91,8 @@ def add_event():
 
 
 @app.route('/main' )
-	def main():
-		return render_template('main_page.html')
+def main():
+	return render_template('main_page.html')
 
 @app.route('/all_events')
 def all_events():
