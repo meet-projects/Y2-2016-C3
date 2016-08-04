@@ -20,6 +20,7 @@ session = DBSession()
 @app.route('/', methods=['GET','POST'])
 def first_page():
 	return render_template("first_page.html")
+	
 
 	
 @app.route('/sign_up',methods=['GET','POST'])
