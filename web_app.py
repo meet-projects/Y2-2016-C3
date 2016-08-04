@@ -82,7 +82,7 @@ def edit_info():
 		person.country = new_country
 		person.city = new_city
 		person.password = new_password
-		person.new_event_fav = new_event_fav
+		person.event_fav = new_event_fav
 
 		session.commit()
 		return redirect(url_for('main_page'))
