@@ -46,16 +46,34 @@ def sign_up():
 		print ("I made it past the commit")
 		return redirect(url_for('main_page'))
 
+
+
+
 @app.route('/edit_info', methods=['GET','POST'])
 def edit_info():
-	friend = session.query(Person).filter_by(id=logged_in).first()
+	person = session.query(Person).filter_by(id=logged_in).first()
 	if request.method == 'GET':
 		return render_template("edit_info.html",)
 	else:
-		list_of_info=["name","sir_name","gender","birth_date","country","city","user_name","password", "event_fav"]
-		for i in list_of_info:
-			setattr(friend, i, request.form[i])
+		new_name = request.form('name')
+		new_sir_name = request.form('sir_name')
+		new_gender = request.form('gender')
+		new_birth_date = request.form('birth_date')
+		new_country = request.form('country')
+		new_city = request.form('city')
+		new_user_name = request.form('user_name')
+		new_password = request.form('password')
+		new_event_fav = request.form('event_fav')
 
+
+		person.name = new_name
+		person.sir_name = new_sir_name
+		person.gender = new_gender
+		person.birth_date = new_birth_date
+		person.country = new_country
+		person.city = new_city
+		person.password = new_password
+		person.new_event_fav = new_event_fav
 
 		session.commit()
 		return redirect(url_for('main_page'))
@@ -137,7 +155,7 @@ def edit_event(event_id):
 @app.route("/my_bucket/", methods = ['GET', 'POST'])
 def my_bucket():
 	person = session.query(Person).filter_by(id=logged_in).first()
-	styles = person.split(",")
+	styles = person.styles.split(",")
 	totla_event = []
 	for s in styles:
 		current_events = session.query(Event).filter_by(style = s).all()

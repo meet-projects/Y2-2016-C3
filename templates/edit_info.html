@@ -18,37 +18,19 @@
 	</div>
 	<div>	
 		<form action="{{url_for('edit_info')}}" method="post" role="form">
-		name <input type="text" name="name" value="{{'friend.name'}}"><br>
-		sir_name <input type="text" name="sir_name" value="{{'friend.sir_name'}}">
-
-		<br>
-
-	{%if friend.gender == 'Male'%}
-	<input type="radio" name="gender" value="male" checked class="form-control"> male
-	{%else%}
-	<input type="radio" name="gender" class="form-control" value="male" > male
-	{%endif%}
-	
-	{%if friend.gender == 'Female'%}
-	<input type="radio" class="form-control" name="gender" value="female" checked> female
-	{%else%}
-	<input type="radio" name="gender" class="form-control" value="female" > female
-	{%endif%}
-	
-	{%if friend.gender == 'Other'%}
-	<input type="radio" class="form-control" name="gender" value="other" checked> other
-	{%else%}
-	<input type="radio" name="gender" class="form-control" value="other" > other
-	{%endif%}	
-		
-		birth_date<input type="text" name="birth_date" value="{{'friend.birth_date'}}"><br>
-		counrty<input type="text" name="counrty" value="{{'friend.counrty'}}"><br>
-		city<input type="text" name="city" value="{{'friend.city'}}"><br>
-		user_name<input type="text" name="user_name" value="{{'friend.user_name'}}"><br>
-		password<input type="password" name="password" value="{{'friend.password'}}"><br>
-		stuff you like:<input type="text" name="stuff you like" value="{{'friend.event_fav'}}"><br>
-
+		name <input type="text" name="name" value="{{'person.name'}}"><br>
+		name <input type="text" name="name" value="{{'person.name'}}"><br>
+		name <input type="text" name="name" value="{{'person.gender'}}"><br>
+		name <input type="text" name="name" value="{{'person.birth_date'}}"><br>
+		name <input type="text" name="name" value="{{'person.country'}}"><br>
+		name <input type="text" name="name" value="{{'person.city'}}"><br>
+		name <input type="text" name="name" value="{{'person.password'}}"><br>
+		name <input type="text" name="name" value="{{'person.new_event_fav'}}"><br>
 		<input type="submit" name="submit_edit_info" value="Submit">
+
+
+
+	
 	</div>
 </body>
 </html>
