@@ -49,8 +49,8 @@ def sign_up():
 		print ("I made it past the commit")
 	return redirect(url_for('main'))
 
-@app.route('/edit/<int:person_id>', methods=['GET','POST'])
-def edit_info(person_id):
+@app.route('/edit_info', methods=['GET','POST'])
+def edit_info():
 	friend = session.query(Person).filter_by(id=logged_in).first()
 	if request.method == 'GET':
 		return render_template("edit_info.html",)
