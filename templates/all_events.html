@@ -31,6 +31,8 @@ filename='style.css') }}">
     <th>Type</th>
     <th>Location</th>
     <th></th>
+    <th></th>
+    <th></th>
   </tr>
 </thead>
 
@@ -40,14 +42,12 @@ filename='style.css') }}">
     <td>{{ event.name }}</td>
     <td>{{ event.date }}</td>
     <td>{{ event.style }}</td>
-    <td>{{ event.location }} </td>
 
 
     <td><button type="delete" class="btn btn-default">Delete</button></td>
 
-    <td><a href="{{ url_for('edit_event',event_id = event.id )}}" class="btn btn-info" role="button">edit event</a>
+    <td><a href="{{ url_for('edit_event',event_id = event.id )}}" class="btn btn-info" role="button">edit event</a></td>
 
- 
 
 
   </tr>

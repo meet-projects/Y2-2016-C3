@@ -1,6 +1,9 @@
 
 from flask import Flask, render_template, url_for, request, redirect
 app = Flask(__name__)
+app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+
+from flask import session as flasksession
 
 # SQLAlchemy stuff
 ### Add your tables here!
@@ -15,8 +18,6 @@ Base.metadata.bind = engine
 DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
-
-logged_in = 1
 
 
 @app.route('/', methods=['GET','POST'])
@@ -51,19 +52,27 @@ def sign_up():
 
 @app.route('/edit_info', methods=['GET','POST'])
 def edit_info():
-	person = session.query(Person).filter_by(id=logged_in).first()
+	person = session.query(Person).filter_by(id=flasksession['user_id']).first()
 	if request.method == 'GET':
-		return render_template("edit_info.html")
+		return render_template("edit_info.html", person=person)
 	else:
-		new_name = request.form('name')
-		new_sir_name = request.form('sir_name')
-		new_gender = request.form('gender')
-		new_birth_date = request.form('birth_date')
-		new_country = request.form('country')
-		new_city = request.form('city')
-		new_user_name = request.form('user_name')
-		new_password = request.form('password')
-		new_event_fav = request.form('event_fav')
+		print('1')
+		new_name = request.form['name']
+		print('1')
+		new_sir_name = request.form['sir_name']
+		print('1')
+		new_gender = request.form['gender']
+		print('1')
+		new_birth_date = request.form['birth_date']
+		print('1')
+		new_country = request.form['country']
+		print('1')
+		new_city = request.form['city']
+		print('1')
+		new_password = request.form['password']
+		print('1')
+		new_event_fav = request.form['event_fav']
+		print('1')
 
 
 		person.name = new_name
@@ -98,8 +107,6 @@ def add_event():
 		session.commit()
 		# redirect user to the page that views all friends
 		return redirect(url_for('main_page'))
-
-
 
 
 @app.route('/main_page')
@@ -144,8 +151,9 @@ def edit_event(event_id):
 
 @app.route("/my_bucket/", methods = ['GET', 'POST'])
 def my_bucket():
-	person = session.query(Person).filter_by(id=logged_in).first()
-	styles = person.styles.split(",")
+	person = session.query(Person).filter_by(id=flasksession['user_id']).first()
+	styles = person.event_fav.split(",")
+	print(styles)
 	totla_event = []
 	for s in styles:
 		current_events = session.query(Event).filter_by(style = s).all()
@@ -158,7 +166,7 @@ def log_in():
 	if request.method == 'POST':
 		person = session.query(Person).filter_by(user_name=request.form['username']).first()
 		if(request.form['password'] == person.password):
-			logged_in = person.id
+			flasksession['user_id'] = person.id
 			return redirect(url_for('main_page'))
 		else:
 			return render_template('log_in.html')
