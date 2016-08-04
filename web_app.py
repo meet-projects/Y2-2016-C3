@@ -20,7 +20,7 @@ session = DBSession()
 @app.route('/', methods=['GET','POST'])
 def first_page():
 	return render_template("first_page.html")
-	
+
 
 	
 @app.route('/sign_up',methods=['GET','POST'])
@@ -43,7 +43,7 @@ def sign_up():
 		session.add(friend)
 		session.commit()
 		print ("I made it past the commit")
-	return redirect(url_for('main'))
+		return redirect(url_for('main',friend=friend))
 
 	
 
