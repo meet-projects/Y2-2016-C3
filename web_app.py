@@ -53,7 +53,7 @@ def sign_up():
 def edit_info():
 	person = session.query(Person).filter_by(id=logged_in).first()
 	if request.method == 'GET':
-		return render_template("edit_info.html",)
+		return render_template("edit_info.html")
 	else:
 		new_name = request.form('name')
 		new_sir_name = request.form('sir_name')
@@ -78,8 +78,6 @@ def edit_info():
 		session.commit()
 		return redirect(url_for('main_page'))
 
-	return render_template('edit_info')
-
 
 
 
@@ -95,17 +93,9 @@ def add_event():
 		new_date = request.form['date']
 		new_style = request.form['style']
 		new_location = request.form['location']
-		
-		
-
-		
 		newevent = Event(name = new_name, date = new_date, style = new_style, location = new_location)
-
-		
 		session.add(newevent)
 		session.commit()
-		
-		
 		# redirect user to the page that views all friends
 		return redirect(url_for('main_page'))
 
@@ -163,13 +153,17 @@ def my_bucket():
 	return render_template("my_bucket.html", person=person, events=totla_event)
 
 
-@app.route("/log_in")
+@app.route("/log_in", methods= ['GET','POST'])
 def log_in():
-	request.form['username']
-	request.form['password']
-	person = session.query(Person).filter_by(username=person_username).all()
-	if(request.form['password'] == person.password):
-		logged_in = person.id
+	if request.method == 'POST':
+		person = session.query(Person).filter_by(user_name=request.form['username']).first()
+		if(request.form['password'] == person.password):
+			logged_in = person.id
+			return redirect(url_for('main_page'))
+		else:
+			return render_template('log_in.html')
+	else:
+		return render_template('log_in.html')
 
 
 
