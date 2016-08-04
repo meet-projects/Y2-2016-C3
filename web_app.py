@@ -16,7 +16,7 @@ DBSession = sessionmaker(bind=engine)
 session = DBSession()
 
 
-#YOUR WEB APP CODE GOES HERE
+
 @app.route('/', methods=['GET','POST'])
 def first_page():
 	return render_template("first_page.html")
@@ -44,10 +44,6 @@ def sign_up():
 		session.commit()
 		print ("I made it past the commit")
 		return redirect(url_for('main',friend=friend))
-
-	
-
-
 
 @app.route('/edit_info/', methods=['GET','POST'])
 def edit_info(person_id):
@@ -109,7 +105,7 @@ def all_events():
 
 
 
-@app.route("/edit/<int:event_id>", methods=['GET', 'POST'])
+@app.route("/edit_event/<int:event_id>", methods=['GET', 'POST'])
 def edit_event(event_id):
 	print(list(request.form.keys()))
 	event = session.query(Event).filter_by(id=event_id).first()
@@ -127,13 +123,27 @@ def edit_event(event_id):
 		event.name = new_name
 		event.date = new_date
 		event.style = new_style
-		event.style = new_style
+		event.location = new_location
 	   
 		session.commit()
 		
 
 		# redirect user to the page that views all friends
 		return redirect(url_for('main'))
+
+
+
+
+@app.route("/my_bucket/<int:person_id>", methods = ['GET', 'POST'])
+def my_bucket(person_id):
+	person = session.query(Person).filter_by(id=person_id).first()
+	styles = person.split(",")
+	totla_event = []
+	for s in styles:
+		current_events = session.query(Event).filter_by(style = s).all()
+		totla_event += current_events 
+	return render_template("my_bucket.html", person=person, events=totla_event)
+
 
 
 
