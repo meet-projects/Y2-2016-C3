@@ -17,7 +17,12 @@ session = DBSession()
 
 
 #YOUR WEB APP CODE GOES HERE
-@app.route('/',methods=['GET','POST'])
+@app.route('/', methods=['GET','POST'])
+def first_page():
+	return render_template("first_page.html")
+
+	
+@app.route('/sign_up',methods=['GET','POST'])
 def sign_up():
 	if request.method == 'GET':
 		return render_template("sign_up.html")
@@ -90,9 +95,11 @@ def add_event():
 
 
 
-@app.route('/main' )
-def main():
-	return render_template('main_page.html')
+@app.route('/main/<int:person_id>')
+def main(person_id):
+	person=session.query(Person).filter_by(id=person_id).first()
+
+	return render_template('main_page.html',person=person)
 
 @app.route('/all_events')
 def all_events():
