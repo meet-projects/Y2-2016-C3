@@ -16,7 +16,7 @@ class Person(Base):
     city = Column(String(60))  # city/town name
     user_name = Column(String(60))
     password = Column(String(60))
-
+    event_fav = Column(String(60))
 
 
 class Event(Base):
