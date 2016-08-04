@@ -32,62 +32,42 @@ h1 {
 		
 		<h3><em><font color="boldblack">We connect people</font> <em></h3>
 	</div>
-	<div>	
-	<form class="form-inline" role="form">
-	<div class="form-group">
-		<label for="name" ></label>
-		<input type="name" class="form-control" placeholder="First Name" id="name">
-	</div>
-	<br>
-	<form class="form-inline" role="form">
-	<div class="form-group">
-		<label for="name" ></label>
-		<input type="name" class="form-control" placeholder="Last Name" id="name">
-	</div>
-	<br>
+	<form class="form-inline" role="form" action="{{url_for('sign_up')}}" method="post">
+		<div class="form-group">
+			<label for="name" ></label>
+			<input type="text" name='name' class="form-control" placeholder="First Name" >
+		</div>
+		<br>
+		<div class="form-group">
+			
+			<input type="text"  name="sir_name" class="form-control" placeholder="Last Name" >
+		</div>
+		<br>
 
 		<font color="indigo">Male</font> <input type="radio" name="gender" class="form-control" value="male">
-		&nbsp;&nbsp;&nbsp;<font color="indigo">Female</font> <input type="radio" name="gender" class="form-control" value="female">
-		&nbsp;&nbsp;&nbsp;<font color="indigo">Other</font> <input type="radio" name="gender" class="form-control" value="other"><br>	
-	<div>	
-	<form class="form-inline" role="form">
-	<div class="form-group">
-		<label for="name"></label>
-		<input type="name" class="form-control" placeholder="Country" id="name">
-	</div>
-	<br>
-	<div>	
-	<form class="form-inline" role="form">
-	<div class="form-group">
-		<label for="name"></label>
-		<input type="name" class="form-control" placeholder="City" id="name">
-	</div>
-	<br>
-	
-	<div>	
-	<form class="form-inline" role="form">
-	<div class="form-group">
-		<label for="name" ></label>
-		<input type="name" class="form-control" placeholder="Username" id="name">
-	</div>
-	<br>
-	<div>	
-	<form class="form-inline" role="form">
-	<div class="form-group">
-		<label for="name"></label>
-		<input type="email" class="form-control" placeholder="E-mail" id="name">
-	</div>
-	<br>
-	<div>	
-	<form class="form-inline" role="form">
-	<div class="form-group">
-		<label for="name"></label>
-		<input type="password" class="form-control" placeholder="Password" id="name">
-	</div>
-	<br>
+		<font color="indigo">Female</font> <input type="radio" name="gender" class="form-control" value="female">
+		<font color="indigo">Other</font> <input type="radio" name="gender" class="form-control" value="other"><br>	
+		<div class="form-group">
+			<input type="text" name="country" class="form-control" placeholder="Country" >
+		</div>
+		<br>
+		<div class="form-group">
+			<input type="date" name="birth_date" class="date">
+		</div><br>
+		<div class="form-group">
+			<input type="text"  name="city" class="form-control" placeholder="City" >
+		</div>
+		<br>
+		<div class="form-group">
+			<input type="text" name="user_name" class="form-control" placeholder="Username" >
+		</div>
+		<br>
+		<div class="form-group">
+			<input type="password" name="password" class="form-control" placeholder="Password" >
+		</div>
+		<br>	
 
 		<input type="submit" name="submit_sign_up" class="form-control" value="Submit">
-	</div>
 	</form>
 
 

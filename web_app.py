@@ -43,7 +43,7 @@ def sign_up():
 		session.add(friend)
 		session.commit()
 		print ("I made it past the commit")
-		return redirect(url_for('main',friend=friend))
+		return redirect(url_for('main',person_id=person_id))
 
 @app.route('/edit_info/', methods=['GET','POST'])
 def edit_info(person_id):
