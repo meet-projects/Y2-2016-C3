@@ -23,11 +23,7 @@ logged_in = 1
 def first_page():
 	return render_template("first_page.html")
 
-<<<<<<< HEAD
-=======
 
-	
->>>>>>> 876cca4df641894f4464df64340a93639171a4f5
 
 	
 @app.route('/sign_up',methods=['GET','POST'])
