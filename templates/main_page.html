@@ -1,61 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-
- <meta charset="utf-8">
+  <title>Main page</title>
+  
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', 
-filename='style.css') }}">
- <!-- Latest compiled and minified CSS -->
-<style>
-body{
-	background:url(http://rawagency.se/wp-content/uploads/2015/11/Extreme-Sports-Wallpaper-1-1024x576.jpg);
-	background-size: 100%;
-
+</head>
+<style type="text/css">
+.jumbotron{
+  background-color: #0d0630;
+  color:#ffffff;
+  padding: 100px 25px;
 }
-.container-fluid {
-  background-color:#5ABCB9 
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
+.bg-1{
+  background-color: #e6f9af
+}
+.bg-2{
+  background-color: #18314f
+}
+
+.navbar {
+    margin-bottom: 0;
+    background-color: #384e77;
+    z-index: 9999;
+    border: 0;
+    font-size: 12px !important;
+    line-height: 1.42857143 !important;
+    letter-spacing: 4px;
+    border-radius: 0;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #384e77!important;
+    background-color: #fff !important;
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}
+body{
+	font-family: "Lato", sans-serif;
 }
 </style>
-</head>
- 
+
 <body>
-<div class="header text-center">
-<h1>Coolest Events Ever</h1>
+<div class="jumbotron text-center">
+  	<h1>Bucket List</h1>
+ 	<p><em>We connect people</em></p>
 </div>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Bucket List</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-left">
-        <li><a href="{{url_for('all_events')}}">View All Events</a></li>
-        <li><a href="{{url_for('add_event')}}">Add An Event</a></li>
-        <li><a href="{{url_for('edit_info')}}">Edit Youre Information</a></li>
-        <li> <a href="{{ url_for('my_bucket')}}">Youre Bucket :)</li>
-      </ul>
-    </div>
+ 	<div class="container-fluid text-center bg-1">
+ 	<h2>About Us</h2>
+ 	<h4>we are an event planing who also blabla</h4>
+ 	<p>also we think...</p>
+</div>
+<div class="container-fluid">
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+      		</button>
+      		<h2 class="navbar-brand">#BucketList</h2>
+		</div>
+		<div>
+			<ul class="nav navbar-nav navbar-left">
+        		<li><a href="{{url_for('all_events')}}"><h4>All Events</h4></a></li>
+        		<li><a href="{{url_for('add_event')}}"><h4>Add an Event</h4></a></li>
+        		<li><a href="{{url_for('edit_info')}}"><h4>Edit Your Information</h4></a></li>
+        		<li><a href="{{url_for('my_bucket')}}"><h4>Your Bucket</h4></a></li>
+      		</ul>
+      		<ul class="nav navbar-nav navbar-right">
+        		<li><a href="{{url_for('first_page')}}"><h3>LOGOUT</h3></a></li>
+        	</ul>
+		</div>
+	</div>
+	
 </nav>
-
 </div>
-
 </body>
-
-
 
 </html>

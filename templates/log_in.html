@@ -10,18 +10,41 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script> 
 	<title>log in </title>
 </head>
+<style type="text/css">
+.container-fluid{
+	padding-top: 70px;
+	padding-right: 100px;
+	padding-left: 100px;
+	color: white;
+}
+body{
+	background:url(http://bgfons.com/upload/wood%20_texture553.jpg);
+	background-size: cover;
+	font-family: "Lato", sans-serif;
+
+}
+</style>
 <body>
+<div class="container-fluid text-center">
+<div class="page-header">
+	<h1>LOGIN</h1>
+</div>
+<div class="container text-center">
+
 <form class="form-inline" role="form" action="{{url_for('log_in')}}" method="post">
 	<div class="form-group">
-		<label for="username">Username:</label>
-		<input type="text" class="form-control" name="username">
+		<input type="text" class="form-control" placeholder="Username" name="username" required="required">
+	<br><br>
+		<input type="password" placeholder="Password" required="required" class="form-control" name="password">
 	<br>
-		<label for="password"> Password:</label>
-		<input type="password"  class="form-control" name="password">
-	<br>
-
+<br>
 	<button type="submit" class="btn btn-default">Submit</button>
 	</div>
 </form>
+
+</div>
+
+</div>
+
 </body>
 </html>

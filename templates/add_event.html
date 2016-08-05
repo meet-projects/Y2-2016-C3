@@ -8,51 +8,64 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}">
+
 <style type="text/css">
-	.asdf {
-    padding: 80px 120px;
-    background: url(http://wallpapercave.com/wp/Q4VECQE.jpg) ;
-        background-position: center;
-        background-size: cover;
+
+body {
+	color: white;
+	background: url(http://wallpapercave.com/wp/Q4VECQE.jpg) ;
+	background-position: center;
+	background-size: cover;
+	font-family: "Lato", sans-serif;
+
+
 }
-h1 {
-   -webkit-text-stroke-width: 3px;
-   -webkit-text-stroke-color: white;
+.page-header{
+	padding-top: 70px;
+	padding-left: 100px;
+	padding-right: 100px;
 }
-	
 </style>
 </head>
 
 <body>
 
-<div class="container">
-<body class="asdf">
+<body>
 <div class="container-fluid text-center">
 
 
 	<div class="page-header">
 	<h1>Add Event</h1>
+	<FONT FACE="Monaco"></FONT> 
+	<FONT SIZE="300"></FONT>
 	</div>
+<div class="container text-center">
+	
+<form action="{{url_for('add_event')}}" method="post" class="form-inline" role="form">
+<div class="form-group">
+	<input type="text" name="name" class="form-control" placeholder="Name">
+</div><br><br>
+<div class="form-group">
+	<input type="date" name="date" class="form-control" placeholder="Date">
+</div><br><br>
+<div class="form-group">
+	<label for="style"><h3>Type of event:</h3></label><br>
+	<label><input type="radio" name="style" class="form-control" value="music"> Music</label>
+	<label><input type="radio" name="style" class="form-control" value="food"> Food </label>
+	<label><input type="radio" name="style" class="form-control" value="tech"> Tech</label>
+</div><br><br>
+<div class="form-group">
+	<input type="text" name="location" class="form-control" placeholder="Location">
+</div><br><br>
+	<input type="submit" class="btn btn-success" value="Submit">
 
-<form action="{{url_for('add_event')}}" method="post">
-<input type="text" name="name" placeholder="Name">
-
-<br>
-<input type="text" name="date" placeholder="Date">
-<br>
-<input type="text" name="style" placeholder="type">
-<br>
-<input type="text" name="location" placeholder="Location">
-<br>
-<input type="submit" value="Submit">
-
-<br>
 </form>
 
 <a href="{{url_for('main_page')}}" class="btn btn-info" role="button">Cancel</a>
 
 </div>
 
+</div>	
 
 </body>
 </html>

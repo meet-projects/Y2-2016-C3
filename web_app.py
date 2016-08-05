@@ -45,7 +45,7 @@ def sign_up():
 		session.add(friend)
 		session.commit()
 		print ("I made it past the commit")
-		return redirect(url_for('main_page'))
+		return redirect(url_for('log_in'))
 
 
 

@@ -15,11 +15,10 @@
     padding: 80px 120px;
     background: url(http://www.webgranth.com/wp-content/uploads/2014/07/Rock-climbing-Wallpaper.jpg) ;
         background-position: center;
-        background-size: 100%;
+        background-size: cover;
 }
-h1 {
-   -webkit-text-stroke-width: 3px;
-   -webkit-text-stroke-color: white;
+body{
+	font-family: "Lato", sans-serif;
 }
 </style>
 </head>
@@ -68,8 +67,11 @@ h1 {
 		</div>
 		<br>
 
-		<label for="event_fav"><strong>Whats youre instersts?:</strong> </label><br>
-		<input type="text" class="form-control" name="event_fav"><br><br>
+		<label for="event_fav"><strong>Whats youre instersts?:</strong> </label><br><br>
+		<input type="radio" class="form-control" name="event_fav" value="music">  Music<br>
+		<input type="radio" class="form-control" name="event_fav" value="food" >  Food<br>
+		<input type="radio" class="form-control" name="event_fav" value="tech">  Technology<br>
+
 
 		<input type="submit" name="submit_sign_up" class="form-control" value="Submit">
 	</form>
