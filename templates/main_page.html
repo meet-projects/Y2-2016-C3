@@ -12,7 +12,7 @@
 </head>
 <style type="text/css">
 .jumbotron{
-  background-color: #0d0630;
+  background:transparent;
   color:#ffffff;
   padding: 100px 25px;
 }
@@ -24,69 +24,59 @@
 }
 
 .navbar {
-    margin-bottom: 0;
-    background-color: #384e77;
-    z-index: 9999;
-    border: 0;
-    font-size: 12px !important;
-    line-height: 1.42857143 !important;
-    letter-spacing: 4px;
-    border-radius: 0;
+	margin-bottom: 0;
+	background-color:#247BA0 ;
+	z-index: 9999;
+	border: 0;
+	font-size: 12px !important;
+	line-height: 1.42857143 !important;
+	letter-spacing: 4px;
+	border-radius: 0;
 }
 .navbar li a, .navbar .navbar-brand {
-    color: #fff !important;
+	color: #fff !important;
+	background:transparent;
 }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #384e77!important;
-    background-color: #fff !important;
+	color: #384e77!important;
+	background-color: #fff !important;
 }
 
 .navbar-default .navbar-toggle {
-    border-color: transparent;
-    color: #fff !important;
+	border-color: lightgrey;
+	color: #fff !important;
 }
 body{
 	font-family: "Lato", sans-serif;
+  background: url(https://i.ytimg.com/vi/YNxrOnKA0Sg/maxresdefault.jpg);
+  background-size: cover;
 }
 </style>
 
 <body>
-<div class="jumbotron text-center">
-  	<h1>Bucket List</h1>
- 	<p><em>We connect people</em></p>
-</div>
- 	<div class="container-fluid text-center bg-1">
- 	<h2>About Us</h2>
- 	<h4>we are an event planing who also blabla</h4>
- 	<p>also we think...</p>
-</div>
-<div class="container-fluid">
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-fixed-top">
 	<div class="container-fluid">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        	<span class="icon-bar"></span>
-        	<span class="icon-bar"></span>
-        	<span class="icon-bar"></span>
-      		</button>
-      		<h2 class="navbar-brand">#BucketList</h2>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			</button>
 		</div>
 		<div>
 			<ul class="nav navbar-nav navbar-left">
-        		<li><a href="{{url_for('all_events')}}"><h4>All Events</h4></a></li>
-        		<li><a href="{{url_for('add_event')}}"><h4>Add an Event</h4></a></li>
-        		<li><a href="{{url_for('edit_info')}}"><h4>Edit Your Information</h4></a></li>
-        		<li><a href="{{url_for('my_bucket')}}"><h4>Your Bucket</h4></a></li>
-      		</ul>
-      		<ul class="nav navbar-nav navbar-right">
-        		<li><a href="{{url_for('first_page')}}"><h3>LOGOUT</h3></a></li>
-        	</ul>
+				<li><a href="{{url_for('all_events')}}"><h4>All Events</h4></a></li>
+				<li><a href="{{url_for('add_event')}}"><h4>Add an Event</h4></a></li>
+				<li><a href="{{url_for('edit_info')}}"><h4>Edit Your Information</h4></a></li>
+				<li><a href="{{url_for('my_bucket')}}"><h4>Your Bucket</h4></a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="{{url_for('first_page')}}"><h4>LOGOUT</h4></a></li>
+			</ul>
 		</div>
-	</div>
-	
+  </div>	
 </nav>
-</div>
 </body>
 
 </html>
