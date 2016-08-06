@@ -1,6 +1,5 @@
 <DOCTYPE! html>
-<!DOCTYPE html>
-<html>
+ <html>
 <head>
 
   <meta charset="utf-8">
@@ -10,20 +9,44 @@
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>EDIT INFO</title>
 </head>
-<style type="text/css">
-	body{
-	font-family: 'Lato', sans-serif;
-	background:url(https://s-media-cache-ak0.pinimg.com/originals/21/27/51/212751248e6f6591846481281fe045dc.jpg);
 
-	background-size: cover; 
+<style type="text/css">
+body{
+	background-color:#14536D;
+
+}
+.asdf{
+	max-width: 600px;
+
+	}
+.jumbotron{
+	background-color:#14536D;
 	color: white;
-	margin: auto;
+}
+.bg1{
+	background-color:#528E83;
+		border-radius: 25px 25px 0px 0px;
+
+}
+.bg2{
+
+	background-color:#88A892
+}
+.bg3{
+
+	background-color: #C2CC96;
+	align-self: center;
+}
+.bg4{
+		border-radius: 0px 0px 25px 25px;
+
+	background-color: #CC1243
 }
 
 </style>
 <body>
-<div class="container">
-<div class="page-header text-center">
+<div class="container-fluid text-center ">
+<div class="jumbotron">
 		<h1>
 			Edit Your Info
 		</h1>
@@ -32,44 +55,50 @@
 			<em>Here you can edit your information about yourself, which will change your event list!</em>
 		</h3>
 </div>
-	<div class="container text-center">
-		<form action="{{url_for('edit_info')}}" class="form-group" method="post" class="form-inline" role="form">
+	<br><br>
+<div class=" bg1 asdf container-fluid">
+<h1>           </h1>
+		<form action="{{url_for('edit_info')}}" class="form-group asdf" method="post" role="form">
 		<div class="form-control">
 			<label for="name">Name <input type="text" name="name" value="{{person.name}}"></label><br>
 		</div>
 		<div class="form-control">
 			<label for="sir_name">Last name <input type="text" name="sir_name" value="{{person.sir_name}}"></label><br>
 		</div>
-
+</div>
+<div class="bg2 asdf container-fluid">
 		<label>	
 		Male
-		{%if person.new_event_fav == music%}
-		<input type="radio" name="gender" value="male" checked>
+		{%if person.gender == male%}
+		<input type="radio" name="gender" value="male" required checked="checked">
 		{%else%}
-		<input type="radio" name="gender" value="male">
+		<input type="radio" required name="gender" value="male">
 		{%endif%}
 		</label>
 		
 		<label>
 		Female	
-		{%if person.new_event_fav == food%}
-		<input type="radio" name="gender" value="female" checked>
+		{%if person.gender == female%}
+		<input type="radio" required name="gender" value="female" checked="checked">
 		{%else%}
-		<input type="radio" name="gender" value="female">
+		<input type="radio" required name="gender" value="female">
 		{%endif%}
 		</label>
 		
 		<label>
 		Other
-		{%if person.new_event_fav == tech%}
-		<input type="radio" name="gender" value="other" checked>
+		{%if person.gender == other%}
+		<input type="radio" required name="gender" value="other" checked="checked">
 		{%else%}
-		<input type="radio" name="gender" value="other">
+		<input type="radio" required name="gender" value="other">
 		{%endif%}
 		</label>
 		<div class="form-control">
 			<label for="birth_date">Birthdate <input type="text" name="birth_date" value="{{person.birth_date}}"></label><br>
 		</div>
+</div>
+<div class="asdf container-fluid bg3">
+	
 		<div class="form-control">
 			<label for="country">  Country  <input type="text" name="country" value="{{person.country}}"></label><br>
 		</div>
@@ -79,14 +108,12 @@
 		<div class="form-control">
 			<label for="password">Password <input type="text" name="password" value="{{person.password}}"></label><br>
 		</div>
-
-		<div class="form-control">
 		<br>
 		<br>
-		<h3>Events you liked :</h3>
+</div>
+<div class=" asdf container-fluid bg4">
+		<h4>Events you liked :</h4>
 		<br>
-		<br>
-
 
 		<label>	
 		Music
@@ -113,15 +140,17 @@
 		{%else%}
 		<input type="radio" name="event_fav" value="tech">
 		{%endif%}
-
-
 		</label>
-		<input type="submit" name="submit_edit_success" value="Submit">
+		<br>
+		<br>
+		</div>
+		<input type="submit" class="btn btn-success" name="submit_edit_success" value="Submit">
 		</form>	
+		<h1></h1>
+		<h1></h1>
 	</div>
 </div>
-
-
+</div>
 </div>
 </body>
 </html>

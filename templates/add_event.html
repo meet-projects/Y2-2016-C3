@@ -20,10 +20,13 @@ body {
 
 
 }
-.page-header{
-	padding-top: 70px;
-	padding-left: 100px;
-	padding-right: 100px;
+.jumbotron{
+	background:transparent; 
+}
+.asdf{
+	background:rgba(40,40,40,0.6);
+	max-width: 300px; 
+	height: 120$
 }
 </style>
 </head>
@@ -34,12 +37,12 @@ body {
 <div class="container-fluid text-center">
 
 
-	<div class="page-header">
+	<div class="jumbotron">
 	<h1>Add Event</h1>
 	<FONT FACE="Monaco"></FONT> 
 	<FONT SIZE="300"></FONT>
 	</div>
-<div class="container text-center">
+<div class="container text-center asdf">
 	
 <form action="{{url_for('add_event')}}" method="post" class="form-inline" role="form">
 <div class="form-group">
