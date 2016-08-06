@@ -9,26 +9,11 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   
   <style>
+ body{
+ 	background: url(https://images5.alphacoders.com/385/385422.jpg);
+ 	background-size: cover;
+ }
 
-  body, html {
-	height: 200%;
-}
-
-
-.parallax {
-	
-	background-image: url(/home/student/Desktop/Y2-2016-C3/static/icyy.jpg);
-
-	
-	height: 100%;
-	width:100%;
-	position: absolute;
-	top:100%;
-	
-
-	background-position: bottom;
-	background-repeat: no-repeat;
-	background-size: 100%;
 
  }
 	.ilinin {
@@ -50,6 +35,9 @@
 
 	body {
 	font-family: "Lato", sans-serif;
+}
+.page_header{
+	font-size: 200%;
 }
 
 .sidenav {
@@ -108,9 +96,8 @@
 </div>
 
 
-<span style="font-size:35px;cursor:pointer;position:absolute;top:50px;left:50px;" onclick="openNav()">☰ MENU</span>
 <a href="{{url_for('log_in')}}" style ="font-size:25px;cursor:pointer;position:absolute;top:50px;right:50px;"> LOGIN</a>
-<a href="{{url_for('sign_up')}}" style ="font-size:25px;cursor:pointer;position:absolute;top:50px;right:170px;"> SIGN UP</a>
+<a href="{{url_for('sign_up')}}" style ="font-size:25px;cursor:pointer;position:absolute;top:50px;left:50px;"> SIGN UP</a>
 
 <script>
 function openNav() {
@@ -128,7 +115,7 @@ function closeNav() {
 		</h1>
 		 <FONT FACE="Monaco"></FONT> 
 		  
-		   <FONT SIZE="300"></FONT> 
+		   <FONT SIZE="600"></FONT> 
 	  
 	</div>
 
