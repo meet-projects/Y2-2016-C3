@@ -50,12 +50,22 @@ body {
 </div><br><br>
 <div class="form-group">
 	<input type="date" name="date" class="form-control" placeholder="Date">
-</div><br><br>
+</div>
+<br>
+  <label for="comment">Comment:</label>
+  <textarea class="form-control" rows="5" id="comment" placeholder="Description of the event"></textarea>
+
+<br>
+
 <div class="form-group">
 	<label for="style"><h3>Type of event:</h3></label><br>
-	<label><input type="radio" name="style" class="form-control" value="music"> Music</label>
+	<label><input type="radio" name="style" class="form-control"  value="music"> Music</label>
 	<label><input type="radio" name="style" class="form-control" value="food"> Food </label>
 	<label><input type="radio" name="style" class="form-control" value="tech"> Tech</label>
+	<label><input type="radio" class="form-control" name="style" value="party">  Party</label>
+	<label><input type="radio" class="form-control" name="style" value="outdoor">  Outdoor</label>
+	<label><input type="radio" class="form-control" name="style" value="confrence">  Confrence</label>
+	<label><input type="radio" class="form-control" name="style" value="sports">  Sports</label>
 </div><br><br>
 <div class="form-group">
 	<input type="text" name="location" class="form-control" placeholder="Location">

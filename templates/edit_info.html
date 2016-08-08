@@ -69,7 +69,7 @@ body{
 <div class="bg2 asdf container-fluid">
 		<label>	
 		Male
-		{%if person.gender == male%}
+		{%if person.gender == 'male'%}
 		<input type="radio" name="gender" value="male" required checked="checked">
 		{%else%}
 		<input type="radio" required name="gender" value="male">
@@ -78,7 +78,7 @@ body{
 		
 		<label>
 		Female	
-		{%if person.gender == female%}
+		{%if person.gender == 'female'%}
 		<input type="radio" required name="gender" value="female" checked="checked">
 		{%else%}
 		<input type="radio" required name="gender" value="female">
@@ -87,7 +87,7 @@ body{
 		
 		<label>
 		Other
-		{%if person.gender == other%}
+		{%if person.gender == 'other'%}
 		<input type="radio" required name="gender" value="other" checked="checked">
 		{%else%}
 		<input type="radio" required name="gender" value="other">
@@ -117,7 +117,7 @@ body{
 
 		<label>	
 		Music
-		{%if person.new_event_fav == music%}
+		{% if person.new_event_fav == 'music' %}
 		<input type="radio" name="event_fav" value="music" checked>
 		{%else%}
 		<input type="radio" name="event_fav" value="music">
@@ -126,7 +126,7 @@ body{
 		
 		<label>
 		Food	
-		{%if person.new_event_fav == food%}
+		{%if person.new_event_fav == 'food' %}
 		<input type="radio" name="event_fav" value="food" checked>
 		{%else%}
 		<input type="radio" name="event_fav" value="food">
@@ -135,10 +135,44 @@ body{
 		
 		<label>
 		Technology	
-		{%if person.new_event_fav == tech%}
+		{%if person.new_event_fav == 'tech' %}
 		<input type="radio" name="event_fav" value="tech" checked>
 		{%else%}
 		<input type="radio" name="event_fav" value="tech">
+		{%endif%}
+		</label>
+
+		<label>
+		Party	
+		{%if person.new_event_fav == 'party' %}
+		<input type="radio" name="event_fav" value="party" checked>
+		{%else%}
+		<input type="radio" name="event_fav" value="party">
+		{%endif%}
+		</label>
+
+		<label>
+		Outdoor	
+		{%if person.new_event_fav == 'outdoor' %}
+		<input type="radio" name="event_fav" value="outdoor" checked>
+		{%else%}
+		<input type="radio" name="event_fav" value="outdoor">
+		{%endif%}
+		</label>
+		<label>
+		Confrence
+		{%if person.new_event_fav == 'confrence' %}
+		<input type="radio" name="event_fav" value="confrence" checked>
+		{%else%}
+		<input type="radio" name="event_fav" value="confrence">
+		{%endif%}
+		</label>
+		<label>
+		Sports	
+		{%if person.new_event_fav == 'sports' %}
+		<input type="radio" name="event_fav" value="sports" checked>
+		{%else%}
+		<input type="radio" name="event_fav" value="sports">
 		{%endif%}
 		</label>
 		<br>
