@@ -28,6 +28,7 @@ class Event(Base):
     date = Column(String(60))
     location = Column(String(60))
     style = Column(String(60))
+    description = Column(String)
 
     
     

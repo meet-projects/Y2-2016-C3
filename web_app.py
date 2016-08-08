@@ -54,7 +54,8 @@ def sign_up():
 def edit_info():
 	person = session.query(Person).filter_by(id=flasksession['user_id']).first()
 	if request.method == 'GET':
-		return render_template("edit_info.html", person=person)
+		checked=person.event_fav.split(',')[:-1]
+		return render_template("edit_info.html", person=person, checked=checked)
 	else:
 		print('1')
 		new_name = request.form['name']
@@ -71,7 +72,7 @@ def edit_info():
 		print('1')
 		new_password = request.form['password']
 		print('1')
-		new_event_fav = request.form['event_fav']
+		new_event_fav = ''.join(request.form.getlist('event_fav'))
 		print('1')
 
 
@@ -102,7 +103,7 @@ def add_event():
 		new_date = request.form['date']
 		new_style = request.form['style']
 		new_location = request.form['location']
-		newevent = Event(name = new_name, date = new_date, style = new_style, location = new_location)
+		newevent = Event(name = new_name, date = new_date, style = new_style, location = new_location, description=request.form['description'])
 		session.add(newevent)
 		session.commit()
 		# redirect user to the page that views all friends
@@ -139,6 +140,7 @@ def edit_event(event_id):
 		event.date = new_date
 		event.style = new_style
 		event.location = new_location
+		event.description = request.form['description']
 	   
 		session.commit()
 		
@@ -157,6 +159,7 @@ def my_bucket():
 	totla_event = []
 	for s in styles:
 		current_events = session.query(Event).filter_by(style = s).all()
+		print(current_events)
 		totla_event += current_events 
 	return render_template("my_bucket.html", person=person, events=totla_event)
 

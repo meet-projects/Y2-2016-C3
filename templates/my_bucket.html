@@ -20,6 +20,9 @@ body{
 	background: url(https://images6.alphacoders.com/371/371656.jpg);
 	background-size: cover;
 	color: white;
+  margin: 100px;
+  font-size: 200%;
+
 }
 </style>
 <body>
@@ -27,7 +30,7 @@ body{
 <div class="container">
 
 <div class="page-header">
-<h1>{{person.name}}'s Personal Event List!</h1>
+<h1>{{person.name}}'s Personal Recomended Event List!</h1>
 </div>
 
 <table class="table">
@@ -37,20 +40,18 @@ body{
     <th>Date</th>
     <th>Types</th>
     <th>Location</th>
-    <th></th>
+    <th>Description</th>
   </tr>
 </thead>
 
 <tbody>
   {% for event in events %}
-  <tr>
-
-
-
+  <tr> 
 	<td>{{ event.name }}</td>
     <td>{{ event.date }}</td>
     <td>{{ event.style }}</td>
     <td>{{ event.location }} </td>
+    <td>{{ event.description }} </td>
 
   </tr>
 

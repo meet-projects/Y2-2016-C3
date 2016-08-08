@@ -24,6 +24,7 @@ body{
   background:url(https://cdn.cloudpix.co/images/party-hard/tumblr-static-party-wallpaper-tumblr-01676b0fb9e540157076763dc414f1db-large-1505759.jpg); 
   color: white;
   font-family: "Lato", sans-serif;
+  font-size: 200%;
 }
 </style>
 <body>
@@ -43,6 +44,7 @@ body{
     <th>Date</th>
     <th>Type</th>
     <th>Location</th>
+    <th>Description</th>
 
   </tr>
 </thead>
@@ -54,6 +56,7 @@ body{
     <td>{{ event.date }}</td>
     <td>{{ event.style }}</td>
     <td>{{ event.location}}</td>
+    <td>{{ event.description }}</td>
   </tr>
 
     {% endfor %}
